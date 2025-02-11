@@ -1,0 +1,18 @@
+{
+    "author": "Erika Mustermann",
+    "email": "erika.mustermann@bam.de",
+    "github_username": "BAMResearch",
+    "project_name": "masterdata-example",
+    "module_name": "{{ cookiecutter.project_name|lower|replace('-', '_') }}",
+    "short_description": "A short description for the masterdata project.",
+    "include_python_masterdata": true,
+    "include_excel_masterdata": true,
+    "include_rdfxml_masterdata": true,
+    "_copy_without_render": [
+        "*.html"
+    ],
+    "__prompts__": {
+        "module_name": "The name of the folder src/<module_name>, default is the <project_name> separated with underscores",
+        "github_username": "Github organization or profile name"
+    }
+}
