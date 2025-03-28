@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <owl:AnnotationProperty rdf:about="https://bamresearch.github.io/bam-masterdata/dataType">
+    <rdfs:label xml:lang="en">bam:dataType</rdfs:label>
+    <rdfs:comment xml:lang="en">Represents the data type of a property as defined in the openBIS platform.
+        This annotation is used to ensure alignment with the native data types in openBIS,
+        facilitating seamless integration and data exchange.
+
+        The allowed values for this annotation correspond directly to the openBIS type system,
+        including BOOLEAN, CONTROLLEDVOCABULARY, DATE, HYPERLINK, INTEGER, MULTILINE_VARCHAR, OBJECT,
+        REAL, TIMESTAMP, VARCHAR, and XML.
+
+        While `bam:dataType` is primarily intended for internal usage with openBIS, mappings to
+        standard vocabularies such as `xsd` (e.g., `xsd:boolean`, `xsd:string`) are possible to use and documented to
+        enhance external interoperability. The full mapping is:
+        - BOOLEAN: xsd:boolean
+        - CONTROLLEDVOCABULARY: xsd:string
+        - DATE: xsd:date
+        - HYPERLINK: xsd:anyURI
+        - INTEGER: xsd:integer
+        - MULTILINE_VARCHAR: xsd:string
+        - OBJECT: bam:ObjectType
+        - REAL: xsd:decimal
+        - TIMESTAMP: xsd:dateTime
+        - VARCHAR: xsd:string
+        - XML: xsd:string</rdfs:comment>
+  </owl:AnnotationProperty>
+  <owl:ObjectProperty rdf:about="https://bamresearch.github.io/bam-masterdata/referenceTo">
+    <rdfs:domain>
+      <owl:Thing rdf:about="https://bamresearch.github.io/bam-masterdata/PropertyType">
+        <rdfs:label xml:lang="en">PropertyType</rdfs:label>
+        <rdfs:comment xml:lang="en">A conceptual placeholder used to define and organize properties as first-class entities.
+        PropertyType is used to place properties and define their metadata, separating properties from the
+        entities they describe.
+
+        In integration scenarios:
+        - PropertyType can align with `BFO:Quality` for inherent attributes.
+        - PropertyType can represent `BFO:Role` if properties serve functional purposes.
+        - PropertyType can be treated as a `prov:Entity` when properties participate in provenance relationships.</rdfs:comment>
+      </owl:Thing>
+    </rdfs:domain>
+    <rdfs:label xml:lang="en">referenceTo</rdfs:label>
+    <rdfs:comment xml:lang="en">The property is referencing an object existing in openBIS.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:AnnotationProperty rdf:about="https://bamresearch.github.io/bam-masterdata/propertyLabel">
+    <rdfs:label xml:lang="en">bam:propertyLabel</rdfs:label>
+    <rdfs:comment xml:lang="en">A UI-specific annotation used in openBIS to provide an alternative label for a property
+        displayed in the frontend. Not intended for semantic reasoning or interoperability beyond openBIS.</rdfs:comment>
+  </owl:AnnotationProperty>
+  <owl:Thing rdf:about="https://bamresearch.github.io/bam-masterdata/CollectionType">
+    <rdfs:label xml:lang="en">CollectionType</rdfs:label>
+  </owl:Thing>
+  <owl:Thing rdf:about="https://bamresearch.github.io/bam-masterdata/ExampleObjectType">
+    <rdfs:subClassOf>
+      <owl:Thing rdf:about="https://bamresearch.github.io/bam-masterdata/ObjectType">
+        <rdfs:label xml:lang="en">ObjectType</rdfs:label>
+      </owl:Thing>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="Nccb85c1b27a34863b30a5af64c2df77e">
+        <owl:onProperty rdf:resource="https://bamresearch.github.io/bam-masterdata/hasMandatoryProperty"/>
+        <owl:someValuesFrom rdf:resource="https://bamresearch.github.io/bam-masterdata/Name"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N9a5975fcd1234108a5cf1df671c46e5d">
+        <owl:onProperty rdf:resource="https://bamresearch.github.io/bam-masterdata/hasOptionalProperty"/>
+        <owl:someValuesFrom rdf:resource="https://bamresearch.github.io/bam-masterdata/ControlledName"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">ExampleObjectType</rdfs:label>
+    <dc:identifier>EXAMPLE_OBJECT_TYPE</dc:identifier>
+    <rdfs:comment xml:lang="en">An example to illustrate how to define an Object Type and its attributes</rdfs:comment>
+    <rdfs:comment xml:lang="de">Ein Beispiel zur Veranschaulichung der Definition eines Objekttyps und seiner Attribute</rdfs:comment>
+  </owl:Thing>
+  <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/identifier"/>
+  <owl:Thing rdf:about="https://bamresearch.github.io/bam-masterdata/DatasetType">
+    <rdfs:label xml:lang="en">DatasetType</rdfs:label>
+  </owl:Thing>
+  <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+  <owl:ObjectProperty rdf:about="https://bamresearch.github.io/bam-masterdata/hasOptionalProperty">
+    <rdfs:range rdf:resource="https://bamresearch.github.io/bam-masterdata/PropertyType"/>
+    <rdfs:label xml:lang="en">hasOptionalProperty</rdfs:label>
+    <rdfs:comment xml:lang="en">The property is optionally filled when creating the object in openBIS.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://bamresearch.github.io/bam-masterdata/hasMandatoryProperty">
+    <rdfs:range rdf:resource="https://bamresearch.github.io/bam-masterdata/PropertyType"/>
+    <rdfs:label xml:lang="en">hasMandatoryProperty</rdfs:label>
+    <rdfs:comment xml:lang="en">The property must be mandatorily filled when creating the object in openBIS.</rdfs:comment>
+  </owl:ObjectProperty>
+</rdf:RDF>
