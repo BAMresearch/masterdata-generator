@@ -14,7 +14,7 @@ env:
 
 
 jobs:
-  coveralls-test:
+  checker:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
