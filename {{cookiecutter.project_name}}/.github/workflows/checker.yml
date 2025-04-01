@@ -1,0 +1,33 @@
+name: Checking Masterdata definitions
+on: [push]
+
+# https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
+# `contents` is for permission to the contents of the repository.
+# `pull-requests` is for permission to pull request
+permissions:
+  contents: write
+  checks: write
+  pull-requests: write
+
+env:
+  UV_SYSTEM_PYTHON: true
+
+
+jobs:
+  coveralls-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.12
+    - name: Install uv
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+    - name: Install dependencies
+      run: |
+        uv pip install -e '.[dev]'
+    - name: Check masterdata definitions
+      run: |
+        bam_masterdata checker --file-path=./src/{{cookiecutter.module_name}} --mode=individual
