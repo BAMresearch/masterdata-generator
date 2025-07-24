@@ -35,7 +35,6 @@ if __name__ == "__main__":
         for variant, condition in [
             ("python", "{{cookiecutter.include_python_masterdata}}"),
             ("excel", "{{cookiecutter.include_excel_masterdata}}"),
-            ("rdfxml", "{{cookiecutter.include_rdfxml_masterdata}}"),
         ]
         if condition != "False"
     ]

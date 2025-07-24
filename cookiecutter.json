@@ -7,12 +7,17 @@
     "short_description": "A short description for the masterdata project.",
     "include_python_masterdata": true,
     "include_excel_masterdata": true,
-    "include_rdfxml_masterdata": true,
     "_copy_without_render": [
         "*.html"
     ],
     "__prompts__": {
+        "author": "Name of the main author",
+        "email": "Email of the main author",
+        "github_username": "Github organization or profile name",
+        "project_name": "The name of the folder containing the generated files <project-name>",
         "module_name": "The name of the folder src/<module_name>, default is the <project_name> separated with underscores",
-        "github_username": "Github organization or profile name"
+        "short_description": "Description of the project",
+        "include_python_masterdata": "Do you want to add Python schema files?",
+        "include_excel_masterdata": "Do you want to add Excel schema files?"
     }
 }
