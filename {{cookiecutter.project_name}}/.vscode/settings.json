@@ -1,4 +1,6 @@
 {
+  // "python.defaultInterpreterPath": ".venv/bin/python",
+  // "python.terminal.activateEnvInCurrentTerminal": true,
   "editor.rulers": [90],
   "editor.renderWhitespace": "all",
   "editor.tabSize": 4,
@@ -22,69 +24,5 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports.ruff": "always",
     "source.fixAll.ruff": "always",
-  },
-  "launch": {
-    "version": "0.2.0",
-    "configurations": [
-      {
-        "name": "masterdata Python",
-        "type": "debugpy",
-        "request": "launch",
-        "console": "integratedTerminal",
-        "justMyCode": false,
-        // "program": "${workspaceFolder}/src/masterdata-example/object_types.py",  // path to your entry point Python module
-      },
-      {
-        "name": "masterdata tests",
-        "type": "debugpy",
-        "request": "launch",
-        "console": "integratedTerminal",
-        "program": "${workspaceFolder}/.venv/bin/pytest",  // path to your virtual environment
-        "justMyCode": false,
-        "env": {
-        "_PYTEST_RAISE": "1"
-        },
-        "args": [
-            "-sv",
-            // "${workspaceFolder}/tests/test.py"  // path to your testing module
-        ]
-      },
-      {
-        "name": "masterdata export-to-json",
-        "type": "debugpy",
-        "request": "launch",
-        "cwd": "${workspaceFolder}",
-        "program": "${workspaceFolder}/.venv/bin/bam_masterdata",
-        "justMyCode": false,
-        "args": [
-          "export_to_json",
-          // "--python-path=${workspaceFolder}/src/masterdata-example/object_types.py"  // path to your entry point Python module
-        ]
-      },
-      {
-        "name": "masterdata export-to-excel",
-        "type": "debugpy",
-        "request": "launch",
-        "cwd": "${workspaceFolder}",
-        "program": "${workspaceFolder}/.venv/bin/bam_masterdata",
-        "justMyCode": false,
-        "args": [
-          "export_to_excel",
-          // "--python-path=${workspaceFolder}/src/masterdata-example/object_types.py"  // path to your entry point Python module
-        ]
-      },
-      {
-        "name": "masterdata export-to-rdf",
-        "type": "debugpy",
-        "request": "launch",
-        "cwd": "${workspaceFolder}",
-        "program": "${workspaceFolder}/.venv/bin/bam_masterdata",
-        "justMyCode": false,
-        "args": [
-          "export_to_rdf",
-          // "--python-path=${workspaceFolder}/src/masterdata-example/object_types.py"  // path to your entry point Python module
-        ]
-      },
-    ]
-  },
+  }
 }
